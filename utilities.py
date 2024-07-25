@@ -1,55 +1,7 @@
 import requests
 import os
-# raw_data_folder = os.getcwd() + "\\raw_data"
-
-# def import_raw_data( season, league ):
-#     os.chdir("H:\\Il mio Drive\\serie a\\python\\football-data.com\\raw_data")
-    
-#     # scarica i raw data e li deposita in cartella (sovrascrivendoli ad ogni aggiornamento)
-#     url = f"https://www.football-data.co.uk/mmz4281/{season}/{league}.csv"
-#     print(url)
-#     response = requests.get(url)
-#     # se la chiamata da esito positivo (200) scarica il contenuto del file, altrimenti segnala errore
-#     if response.status_code == 200:
-#         # print(response.status_code)
-#         print(f"Salvo i file in {os.getcwd()}")
-#         with open(f"{league}.csv", "wb") as f:
-#             f.write(response.content)
-#     else:
-#         print("Error on the download of " + url)
-
-# # capire come unire tutti i file scaricati in un unico db
-# # prima di applicare la funzione team
-
-# def union_csv_files(input_dir, output_dir):
-#   """
-#   Importa tutti i file .csv di una cartella in un pandas DataFrame e li appende per riga.
-#   Salva il DataFrame in formato pickle e .sas7bdat nella cartella di output.
-
-#   Args:
-#     input_dir: Il percorso della cartella contenente i file .csv.
-#     output_dir: Il percorso della cartella in cui salvare il DataFrame unificato.
-
-#   Returns:
-#     Il DataFrame unificato.
-#   """
-
-#   # Importa tutti i file .csv in un DataFrame
-# df_list = []
-# for file in os.listdir(input_dir):
-# if file.endswith('.csv'):
-#   df_list.append(pd.read_csv(os.path.join(input_dir, file)))
-
-# # Appende i DataFrame per riga
-# df_all = pd.concat(df_list, ignore_index=True)
-
-# # Salva il DataFrame unificato in formato pickle
-# df_all.to_pickle(os.path.join(output_dir, 'df_all.pkl'))
-
-# # Salva il DataFrame unificato in formato .sas7bdat
-# df_all.to_sas7bdat(os.path.join(output_dir, 'df_all.sas7bdat'))
-
-# return df_all
+import pandas as pd
+import re
 
 def estrai_ultime_due_cifre(stringa):
     """
@@ -75,3 +27,27 @@ def get_final_links(links_squads, stagione):
 
 
 
+def filter_rows_with_spaces(df, column_name):
+    """
+    Filtra le righe di un DataFrame dove una colonna specifica contiene spazi vuoti.
+    
+    :param df: DataFrame Pandas
+    :param column_name: Nome della colonna da controllare per spazi vuoti
+    :return: Nuovo DataFrame contenente solo le righe con spazi vuoti nella colonna specificata
+    """
+    if column_name not in df.columns:
+        raise ValueError(f"Colonna '{column_name}' non trovata nel DataFrame")
+    
+    # Filtra le righe dove la colonna specificata contiene spazi vuoti
+    filtered_df = df[df[column_name].str.contains(' ', na=False)]
+    
+    return filtered_df
+
+
+def clean_value(value):
+    # Usa un'espressione regolare per rimuovere ' (n)'
+    cleaned_value = re.sub(r' \(\d\)', '', value)
+    # Rimuove gli spazi rimanenti
+    cleaned_value = cleaned_value.strip()
+    return cleaned_value
+    
