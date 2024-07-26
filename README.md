@@ -23,12 +23,13 @@ Assicurati di avere installato le seguenti librerie Python:
 
 
 
-## Descrizione delle Funzioni Principali
-rename_cols(topic_kpi, word: str)
-Questa funzione aggiunge un prefisso alle colonne specificate, a meno che il nome della colonna non sia 'date' o 'opponent'.
+## Descrizione delle Funzioni Principali (Utilities.py)
 
-get_final_links(links_squads, stagione)
-Questa funzione, definita nel file utilities.py, estrae i link finali per ogni squadra.
+- estrai_ultime_due_cifre: Estrae le ultime due cifre degli anni in una stringa rappresentante un intervallo di anni (es. "2023-2024" diventa "2324").
+- get_final_links: Costruisce link completi per le squadre aggiungendo la stagione ai link parziali forniti.
+- filter_rows_with_spaces: Filtra e restituisce le righe di un DataFrame dove una specifica colonna contiene spazi vuoti.
+- clean_value: Pulisce un valore stringa rimuovendo un pattern specifico (' (n)') e qualsiasi spazio vuoto rimanente.
+
 
 Processo di Raccolta dei Dati
 Lo script segue questi passaggi per raccogliere i dati:
