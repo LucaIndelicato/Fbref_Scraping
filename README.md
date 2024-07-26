@@ -20,14 +20,10 @@ Assicurati di avere installato le seguenti librerie Python:
 - `html5lib`
 - `pickle`
 
-Puoi installare queste librerie usando pip:
-
-```bash
-pip install requests beautifulsoup4 pandas numpy html5lib
 
 
 
-Descrizione delle Funzioni Principali
+## Descrizione delle Funzioni Principali
 rename_cols(topic_kpi, word: str)
 Questa funzione aggiunge un prefisso alle colonne specificate, a meno che il nome della colonna non sia 'date' o 'opponent'.
 
