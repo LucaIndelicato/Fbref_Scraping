@@ -1,4 +1,4 @@
-# Progetto di Web Scraping dei Dati del Campionato di Calcio
+#  Web Scraping Dati Fbref.com
 
 Questo progetto esegue il web scraping dei dati relativi al campionato di calcio Serie A, raccogliendo informazioni dettagliate sulle partite, i tiri, il possesso palla e i passaggi delle squadre. I dati vengono estratti dal sito FBref.
 
