@@ -34,14 +34,14 @@ Assicurati di avere installato le seguenti librerie Python:
 Processo di Raccolta dei Dati
 Lo script segue questi passaggi per raccogliere i dati:
 
-Scarica la pagina principale del campionato: Estrae i link delle squadre.
-Scarica e processa i dati delle partite: Utilizza pandas.read_html per estrarre la tabella "Scores & Fixtures".
-Scarica e processa i dati dei tiri: Utilizza pandas.read_html per estrarre la tabella "Shooting".
-Scarica e processa i dati del possesso palla: Utilizza pandas.read_html per estrarre la tabella "Possession".
-Scarica e processa i dati dei passaggi: Utilizza pandas.read_html per estrarre la tabella "Passing".
-Unisce i dati: Combina i dati delle partite, dei tiri, del possesso palla e dei passaggi in un unico DataFrame.
-Salva i dati: Salva il DataFrame finale in un file .pkl.
-Salvataggio dei Dati
+- Scarica la pagina principale del campionato: Estrae i link delle squadre.
+- Scarica e processa i dati delle partite: Utilizza pandas.read_html per estrarre la tabella "Scores & Fixtures".
+- Scarica e processa i dati dei tiri: Utilizza pandas.read_html per estrarre la tabella "Shooting".
+- Scarica e processa i dati del possesso palla: Utilizza pandas.read_html per estrarre la tabella "Possession".
+- Scarica e processa i dati dei passaggi: Utilizza pandas.read_html per estrarre la tabella "Passing".
+- Unisce i dati: Combina i dati delle partite, dei tiri, del possesso palla e dei passaggi in un unico DataFrame.
+- Salva i dati: Salva il DataFrame finale in un file .pkl.
+
 I dati finali vengono salvati in un file .pkl nella directory output_data con il nome all_matches_{season_suffix}.pkl, dove season_suffix è l'ultimo numero della stagione (ad esempio, 23 per la stagione 2023-2024).
 
 
